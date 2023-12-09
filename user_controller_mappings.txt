@@ -1,0 +1,1 @@
+03000000790000000600000007010000,DragonRise Inc. Generic USB Joystick,platform:Mac OS X,a:b2,b:b1,x:b3,y:b0,leftx:a0,lefty:a1,leftstick:b10,rightx:a3,-righty:-a4,+righty:+a2,rightstick:b11,leftshoulder:b6,lefttrigger:b4,rightshoulder:b7,righttrigger:b5,dpup:h0.1,dpright:h0.2,dpdown:h0.4,dpleft:h0.8,back:b8,start:-a2
