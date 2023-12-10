@@ -15,6 +15,13 @@ module Draco
     @default_components = {}
     @@next_id = 1
 
+    # Band-aid: Draco classes that provide class-body conveniences for 
+    # defining entities, components and systems get "messed around"
+    # dcrosby 2023-12-10 
+    def self.reset
+      @default_components = {}
+    end
+
     # Internal: Resets the default components for each class that inherites Entity.
     #
     # sub - The class that is inheriting Entity.
@@ -22,7 +29,7 @@ module Draco
     # Returns nothing.
     def self.inherited(sub)
       super
-      sub.instance_variable_set(:@default_components, {})
+      sub.reset
     end
 
     # Public: Adds a default component to the Entity.
@@ -293,6 +300,13 @@ module Draco
   class Component
     @attribute_options = {}
 
+    # Band-aid: Draco classes that provide class-body conveniences for 
+    # defining entities, components and systems get "messed around"
+    # dcrosby 2023-12-10 
+    def self.reset
+      @attribute_options = {}
+    end
+
     # Internal: Resets the attribute options for each class that inherits Component.
     #
     # sub - The class that is inheriting Entity.
@@ -300,7 +314,7 @@ module Draco
     # Returns nothing.
     def self.inherited(sub)
       super
-      sub.instance_variable_set(:@attribute_options, {})
+      sub.reset
     end
 
     # Public: Defines an attribute for the Component.
@@ -419,6 +433,13 @@ module Draco
       @filter
     end
 
+    # Band-aid: Draco classes that provide class-body conveniences for 
+    # defining entities, components and systems get "messed around"
+    # dcrosby 2023-12-10 
+    def self.reset
+      @filter = []
+    end
+
     # Internal: Resets the fuilter for each class that inherits System.
     #
     # sub - The class that is inheriting Entity.
@@ -426,7 +447,7 @@ module Draco
     # Returns nothing.
     def self.inherited(sub)
       super
-      sub.instance_variable_set(:@filter, [])
+      sub.reset
     end
 
     # Public: Creates a tag Component. If the tag already exists, return it.
@@ -519,6 +540,14 @@ module Draco
     @default_entities = []
     @default_systems = []
 
+    # Band-aid: Draco classes that provide class-body conveniences for 
+    # defining entities, components and systems get "messed around"
+    # dcrosby 2023-12-10 
+    def self.reset
+      @defaiult_entities = []
+      @defaiult_systems = []
+    end
+
     # Internal: Resets the default components for each class that inherites Entity.
     #
     # sub - The class that is inheriting Entity.
@@ -526,8 +555,7 @@ module Draco
     # Returns nothing.
     def self.inherited(sub)
       super
-      sub.instance_variable_set(:@default_entities, [])
-      sub.instance_variable_set(:@default_systems, [])
+      sub.reset
     end
 
     # Public: Adds a default Entity to the World.
