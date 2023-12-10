@@ -426,15 +426,15 @@ module Draco
     #
     # Returns the current filter.
     def self.filter(*components)
-      components.each do |component|
-        @filter << component
+      if components.size > 0
+        @filter = components.dup
       end
-
       @filter
     end
 
     # Band-aid: Draco classes that provide class-body conveniences for 
     # defining entities, components and systems get "messed around"
+    # (Though in the case of System.filter, I updated that to be idempotent)
     # dcrosby 2023-12-10 
     def self.reset
       @filter = []
@@ -544,8 +544,8 @@ module Draco
     # defining entities, components and systems get "messed around"
     # dcrosby 2023-12-10 
     def self.reset
-      @defaiult_entities = []
-      @defaiult_systems = []
+      @default_entities = []
+      @default_systems = []
     end
 
     # Internal: Resets the default components for each class that inherites Entity.
