@@ -18,6 +18,26 @@
 # Remove the x from xrepl to run the code. Add the x back to ignore to code.
 
 xrepl do
+  puts Animate.filter
+  puts Duder.filter
+  
+end
+
+xrepl do
+  frame_defs = [
+    {frames: 5, path: [0,1]},
+    {frames: 5, path: [0,2]},
+    {frames: 5, path: [0,3]},
+    {frames: 5, path: [0,5]},
+    {frames: 5, path: [0,6]},
+    {frames: 5, path: [0,7]},
+  ]
+  animated = {current_frame: 24, frames: frame_defs}
+  path = dcrosby_get_current_frame(animated)
+  puts "Got path: #{path}"
+end
+
+xrepl do
   fps = 1
 
   t = 400

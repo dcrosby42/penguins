@@ -1,4 +1,5 @@
 class HandleInput < Draco::System
+  reset
   filter PlayerControlled, Position, Speed
 
   def tick(args)

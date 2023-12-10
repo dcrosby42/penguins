@@ -1,32 +1,10 @@
 class PenguinGame < Draco::World
+  reset
+
   entity Player, as: :player
 
   systems HandleInput,
+    Animate,
     RenderSprites,
     RenderLabels
-
-  # entity Background
-  # entity Title
-  # entity GameStory
-  # entity GameInstructions
-  # entity StartGameInstructions
-
-  # systems UpdateAttackCooldown,
-  #   UpdateCountdown,
-  #   MoveLasers,
-  #   EnemyCombat,
-  #   EnemyMovement,
-  #   HandleInput,
-  #   KeepInScreen,
-  #   SpawnLasers,
-  #   HandleEnemyLaserCollision,
-  #   HandlePlayerLaserCollision,
-  #   HandleDestroyed,
-  #   Animate,
-  #   CleanupAnimations,
-  #   HandleGameOver,
-  #   HandleGameWin,
-  #   RenderSprites,
-  #   UpdatePlanetHealth,
-  #   RenderLabels
 end

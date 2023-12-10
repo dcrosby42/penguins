@@ -2,7 +2,7 @@ class RenderSprites < Draco::System
   filter Position, Sprite
 
   def tick(args)
-    raise "RENDERSPRITES NIL" if entities.nil?
+    return if entities.nil?
     sprites = entities.map do |entity|
       sprite = entity.sprite
       spr = {
@@ -18,10 +18,10 @@ class RenderSprites < Draco::System
         spritesheet = SpriteSheets[sprite.sheet]
         if spritesheet
           spr.path = spritesheet.path
+          spr.tile_x = sprite.tile[0] * spritesheet.tile_w
+          spr.tile_y = sprite.tile[1] * spritesheet.tile_h
           spr.tile_w = spritesheet.tile_w
           spr.tile_h = spritesheet.tile_h
-          spr.tile_x = sprite.tile[0]
-          spr.tile_y = sprite.tile[1]
         end
       else
         # normal sprite file

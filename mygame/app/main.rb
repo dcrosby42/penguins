@@ -63,7 +63,15 @@ require "app/worlds/penguin_game.rb"
 require "app/penguin_sheet_tester"
 
 def tick args
-  # args.state.world ||= PenguinGame.new
-  args.state.world ||= PenguinSheetTester.new
+  args.state.world ||= PenguinGame.new
+  # args.state.world ||= PenguinSheetTester.new
   args.state.world.tick(args)
+
+  handle_reset args
+end
+
+def handle_reset(args)
+  if args.inputs.keyboard.key_down.r
+    $gtk.reset
+  end
 end
