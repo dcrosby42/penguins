@@ -1,12 +1,13 @@
-class Player < Draco::Entity
+
+class Penguin < Draco::Entity
   reset
-  # component Destroyable
-  component PlayerControlled
+  component PenguinControls
   component Position, x: 600, y: 35
+  # component Velocity
   component Speed, speed: 5
-  component Sprite, w: 44, h: 44, sheet: :penguin, tile: [0,1]
+  component Sprite, w: 44, h: 44, sheet: :penguin, tile: [1,0]
   
-  TPF = 30 # ticks per frame
+  TPF = 5 # ticks per frame
   component Animated, frames: [
     {frames: TPF, tile: [1,0]},
     {frames: TPF, tile: [2,0]},

@@ -10,7 +10,8 @@ class RenderSprites < Draco::System
         y: entity.position.y,
         w: sprite.w,
         h: sprite.h,
-        # flip_horizontally: sprite.flip_horizontally
+        flip_horizontally: sprite.flip_horizontally,
+        flip_vertically: sprite.flip_vertically,
       }
 
       if sprite.sheet

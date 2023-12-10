@@ -1,9 +1,9 @@
 class PenguinGame < Draco::World
   reset
 
-  entity Player, as: :player
+  entity Penguin, as: :player
 
-  systems HandleInput,
+  systems PenguinController,
     Animate,
     RenderSprites,
     RenderLabels
