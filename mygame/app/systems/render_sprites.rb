@@ -3,6 +3,7 @@ class RenderSprites < Draco::System
 
   def tick(args)
     return if entities.nil?
+    labels = []
     sprites = entities.map do |entity|
       sprite = entity.sprite
       spr = {
@@ -29,9 +30,11 @@ class RenderSprites < Draco::System
         spr.path = sprite.path
       end
 
+      labels << [entity.position.x,entity.position.y,"#{sprite}",-1]
       spr
     end
 
     args.outputs.sprites << sprites
+    args.outputs.labels << labels
   end
 end

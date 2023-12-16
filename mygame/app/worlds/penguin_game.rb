@@ -4,7 +4,7 @@ class PenguinGame < Draco::World
   entity Penguin, as: :player
 
   systems PenguinController,
-    Animate,
+    AnimationSystem,
     RenderSprites,
     RenderLabels
 end
