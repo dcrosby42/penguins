@@ -1,0 +1,8 @@
+.*
+/logs
+/docs
+/samples
+/tmp
+/dragonruby-httpd
+/dragonruby-publish
+tmp/src_backup
